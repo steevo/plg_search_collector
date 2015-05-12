@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="search">
+	<name>plg_search_collector</name>
+	<author>Philippe Ousset</author>
+	<creationDate>2015</creationDate>
+	<copyright>Copyright (C) 2010 Philippe Ousset. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>steevo@steevo.fr</authorEmail>
+	<authorUrl>www.steevo.fr</authorUrl>
+	<version>0.6.0</version>
+	<description>PLG_SEARCH_COLLECTOR_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="collector">collector.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages>
+		<language tag="fr-FR">language/fr-FR/fr-FR.plg_search_collector.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.plg_search_collector.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_search_collector.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_search_collector.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+ 
+			<fieldset name="basic">
+				<field name="search_limit" type="text"
+					default="50"
+					description="JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC"
+					label="JFIELD_PLG_SEARCH_SEARCHLIMIT_LABEL"
+					size="5"
+				/>
+				
+				<field name="search_collections" type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					description="PLG_SEARCH_COLLECTOR_COLLECTIONS_DESC"
+					label="PLG_SEARCH_COLLECTOR_COLLECTIONS_LABEL"
+				>
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+ 
+				<field name="search_items" type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					description="PLG_SEARCH_COLLECTOR_ITEMS_DESC"
+					label="PLG_SEARCH_COLLECTOR_ITEMS_LABEL"
+				>
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+			</fieldset>
+ 
+		</fields>
+	</config>
+</extension>
