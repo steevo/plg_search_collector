@@ -358,6 +358,7 @@ class plgSearchCollector extends JPlugin
 				foreach ($collections as $key => $item)
 				{
 					$collections[$key]->href = CollectorHelperRoute::getCollectionRoute($item->slug);
+					$collections[$key]->section = JText::_('PLG_SEARCH_COLLECTOR_COLLECTOR');
 				}
 			}
 			$results = array_merge($results, (array) $collections);
@@ -367,6 +368,8 @@ class plgSearchCollector extends JPlugin
 		{
 			foreach($listCollections AS $collection)
 			{
+				$query->clear();
+				
 				$fields = $this->getFields($collection->id);
 
 				switch ($phrase)
@@ -432,6 +435,16 @@ class plgSearchCollector extends JPlugin
 					foreach ($list as $key => $item)
 					{
 						$list[$key]->href = CollectorHelperRoute::getItemRoute($item->slug, $item->catid);
+						$list[$key]->text = '';
+						foreach($fields as $field)
+						{
+							if ( $field->_field->listing == 1 )
+							{
+								$list[$key]->text .= ' ';
+								$tablecolumn = $field->_field->tablecolumn;
+								$list[$key]->text .= $field->display($list[$key]->$tablecolumn);
+							}
+						}
 					}
 				}
 				$results = array_merge($results, (array) $list);
